@@ -1,31 +1,33 @@
-# Use JDK 24 for building
-FROM openjdk:24-jdk-slim as builder
+# Build stage
+FROM azul/zulu-openjdk:24 AS builder
 
 WORKDIR /app
 
-# Copy parent POM and Maven wrapper from root
-COPY pom.xml .
+# Copy Maven wrapper and pom.xml
 COPY mvnw .
+COPY mvnw.cmd .
 COPY .mvn .mvn
+COPY pom.xml .
 
-# Copy module files
-COPY frontend/pom.xml frontend/
-COPY frontend/src frontend/src
-COPY backend/pom.xml backend/
+# Copy source code
+COPY src src
 
-# Make mvnw executable and build only frontend module
+# Make mvnw executable and build
 RUN chmod +x ./mvnw
-RUN ./mvnw clean package -pl frontend -am -DskipTests
+RUN ./mvnw clean package -DskipTests
 
-# Use JDK 24 runtime
-FROM openjdk:24-jre-slim
+# Runtime stage
+FROM azul/zulu-openjdk:24-jre
 
 WORKDIR /app
 
 # Install curl for health checks
-RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y curl && \
+    rm -rf /var/lib/apt/lists/*
 
-COPY --from=builder /app/frontend/target/frontend-1.0.0.jar app.jar
+# Copy built jar from builder stage
+COPY --from=builder /app/target/frontend-1.0.0.jar app.jar
 
 EXPOSE 3000
 

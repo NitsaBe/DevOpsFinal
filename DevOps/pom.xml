@@ -14,15 +14,15 @@
 	<groupId>com.example</groupId>
 	<artifactId>DevOps</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
 
 	<name>DevOps</name>
 	<description>DevOps Final Project</description>
-
+	<packaging>pom</packaging>  <!-- Add this -->
 	<modules>
-		<module>backend</module>
 		<module>frontend</module>
+		<module>backend</module>
 	</modules>
+
 
 	<properties>
 		<java.version>24</java.version> <!-- Keeping Java 24 as requested -->

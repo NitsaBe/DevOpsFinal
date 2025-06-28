@@ -14,8 +14,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="DevOps" options="" />
-      <module name="backend" options="-parameters" />
-      <module name="frontend" options="-parameters" />
+      <module name="backend" options="-parameters --enable-preview" />
+      <module name="frontend" options="-parameters --enable-preview" />
     </option>
   </component>
 </project>

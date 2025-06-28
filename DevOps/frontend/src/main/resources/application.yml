@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: frontend
+  thymeleaf:
+    cache: false
 
 backend:
   url: ${BACKEND_URL:http://localhost:8080}
