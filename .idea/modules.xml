@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/DevOps/DevOps.iml" filepath="$PROJECT_DIR$/DevOps/DevOps.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/DevOpsFinal.iml" filepath="$PROJECT_DIR$/.idea/DevOpsFinal.iml" />
     </modules>
   </component>

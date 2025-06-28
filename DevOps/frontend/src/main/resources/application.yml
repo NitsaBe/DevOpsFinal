@@ -1,0 +1,26 @@
+server:
+  port: 3000
+
+spring:
+  application:
+    name: frontend
+
+backend:
+  url: ${BACKEND_URL:http://localhost:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+logging:
+  level:
+    com.devops: DEBUG
