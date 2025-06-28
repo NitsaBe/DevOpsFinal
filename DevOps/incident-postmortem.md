@@ -47,9 +47,11 @@ I used command  "docker-compose stop backend"
 
 ## What Went Well
 1. Monitoring systems detected the issue quickly
+![img_2.png](img_2.png)
 2. Grafana dashboards provided clear visibility
+![img_1.png](img_1.png)
 3. Recovery procedures were executed successfully
-
+![img_3.png](img_3.png)
 
 ## Lessons Learned
 1. **Monitoring**: Current setup detected issues within 2 minutes
